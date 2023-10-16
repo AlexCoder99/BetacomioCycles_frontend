@@ -1,0 +1,135 @@
+
+<div style="text-align: center; color: #d15800">
+  <h1>Bentornato {{ nomeProfilo }}</h1>
+</div>
+<div style="display: flex; justify-content: center">
+  <div class="col-12 col-lg-6 container-style">
+    <h3>I miei dati:</h3>
+    <hr />
+    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
+      <div class="col-6 col-lg-3">
+        <img
+          class="immagine-circolare"
+          src="../../../assets/images/the-office-handshake.jpg"
+          alt=""
+        />
+      </div>
+      <div class="col-4">
+        <p><b>Username: </b>{{ usernameProfilo }}</p>
+        <p><b>Nome: </b>{{ nomeProfilo }}</p>
+        <p><b>Cognome: </b>{{ cognomeProfilo }}</p>
+        <p><b>Email: </b>{{ emailProfilo }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center my-5">
+  <div class="col-12 col-lg-6 container-style">
+    <h3 style="text-align: center">La mia wishlist</h3>
+    <hr>
+    <!-- <div class="d-flex flex-column">
+      <ul class="list-group list-group-horizontal m-3">
+        <li class="list-group-item col-3"><b>Nome</b></li>
+        <li class="list-group-item col-6"><b>Descrizione</b></li>
+        <li class="list-group-item col-3"><b>Prezzo</b></li>
+      </ul>
+      <h4>Al momento non hai prodotti nella wishlist</h4> -->
+
+      <div *ngIf="wishlistItems.length > 0; then showWishProducts else NoProducts" > </div>
+          
+          <ng-template #showWishProducts>
+
+            <div class="d-flex flex-column">
+              <ul class="list-group list-group-horizontal m-3">
+                <li class="list-group-item col-4"><b>Nome</b></li>
+                <li class="list-group-item col-4"><b>Immagine</b></li>
+                <li class="list-group-item col-4"><b>Prezzo</b></li>
+              </ul>
+            </div>
+
+            <div *ngFor="let val of wishlistItems" class="d-flex flex-column ">
+              <ul class="list-group list-group-horizontal m-3 align-items-center">
+                <li class="list-group-item col-4  pt-5 pb-5">{{val.product.name}}</li>
+                <li class="list-group-item col-4"><img class="img-fluid" [src]="val.product.sanitizedPhoto" width="109.5"></li>
+                <li class="list-group-item col-4  pt-5 pb-5">{{val.product.listPrice}} € </li>
+              </ul>
+            </div>
+
+          </ng-template> 
+
+          <ng-template #NoProducts>
+            <h4>Al momento non hai nessun prodotto fra i preferiti</h4>
+          </ng-template>
+
+  </div>
+
+      <!-- da aggiungere  -->
+      <!-- <ul class="list-group list-group-horizontal-sm m-3">
+        <li class="list-group-item col-4">An item</li>
+        <li class="list-group-item col-4">A second item</li>
+        <li class="list-group-item col-4">A third item</li>
+      </ul> -->
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="col-12 col-lg-6 gg container-style">
+    <h3>I miei ordini</h3>
+    <hr />
+
+    <div *ngIf="orderItems.length > 0; then showOrders else NoOrders" > </div>
+
+    <ng-template #showOrders>
+
+      <div *ngFor="let val of orderItems">
+          <div class="d-flex flex-column">
+            <ul class="list-group list-group-horizontal m-3">
+              <li class="list-group-item col-6"><b>Data d'acquisto</b></li>
+              <li class="list-group-item col-6"><b>Totale speso</b></li>
+            </ul>
+          </div>
+    
+          <div  class="d-flex flex-column ">
+            <ul class="list-group list-group-horizontal m-3">
+              <li class="list-group-item col-6"> <b>{{val.orderDate | date: 'yyyy-MM-dd'}}</b></li>
+              <li class="list-group-item col-6"> <b>{{val.subTotal}} € </b></li>
+            </ul>
+          </div>
+<br>
+          <!-- <p class="d-flex flex-column list-group"> Dettaglio ordine </p>
+
+          <div>
+            <ul class="list-group list-group-horizontal m-3">
+              <li class="list-group-item col-3"><b>Immagine</b></li>
+              <li class="list-group-item col-3"> <b>Nome</b></li>
+              <li class="list-group-item col-3"> <b>Quantità </b></li>
+              <li class="list-group-item col-3"> <b>Prezzo</b></li>
+            </ul>
+          </div>
+
+          <div>
+            <ul class="list-group list-group-horizontal m-3">
+              <li class="list-group-item col-3"><img class="img-fluid" [src]="val.orderDetails.product.sanitizedPhoto" width="80"></li>
+              <li class="list-group-item col-3"> <b>{{val.orderDetails.product.name}}</b></li>
+              <li class="list-group-item col-3"> <b>{{val.orderDetails.orderQty}} </b></li>
+              <li class="list-group-item col-3"> <b>{{val.orderDetails.totalPrice}} </b></li>
+            </ul>
+          </div> -->
+      </div>
+
+
+    </ng-template>
+
+    <ng-template #NoOrders>
+      <h4>Al momento non hai acquistato nessun prodotto</h4>
+    </ng-template>
+
+      <!-- da aggiungere  -->
+       <!-- <ul class="list-group list-group-horizontal-sm m-3">
+        <li class="list-group-item col-4">An item</li>
+        <li class="list-group-item col-4">A second item</li>
+        <li class="list-group-item col-4">A third item</li>
+      </ul> -->
+  </div>
+</div>
+
+

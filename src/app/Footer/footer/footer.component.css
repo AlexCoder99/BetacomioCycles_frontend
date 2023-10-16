@@ -1,0 +1,102 @@
+#footer{
+    background-color: #D15800;
+}
+
+.logo-footer{
+    width: clamp(120px, 25%, 150px);
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.logo-footer:hover{
+    transform: scale(1.1);
+  }
+
+
+.f-item-content{
+    font-size: clamp(.65rem, 1.8vw, .9rem);
+}
+
+.f-title{
+    font-size: clamp(.75rem, 3.2vw, 1.6rem);
+}
+
+.f-follow-title{
+    color: white;
+}
+
+.f-team-title{
+    color: white;
+}
+
+.f-links-title{
+    color: white;
+}
+
+.social-icons{
+    display: flex;
+    justify-content: left;
+    margin-top: 1rem;
+    font-size: clamp(.7rem, 2.8vw, 1.4rem);
+}
+
+.icon-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	color: #000;
+	background: #fff;
+	cursor: pointer;
+    margin: .5rem;
+    padding: .65em;
+    border: 2px solid transparent;
+}
+
+.fab{
+    font-size: 21px;
+}
+
+@media screen and (max-width:600px){
+    .social-icons{
+        width: 20px;
+        height: 20px;
+    }
+
+    .icon-container{
+        width: 25px;
+        height: 30px;
+    }
+
+    .fab{
+        font-size: 20px;
+    }
+}
+
+.scritte{
+    color: white;
+    text-decoration: none;
+    transition: all .5s;
+}
+
+.hover-detail:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+.copyright{
+	text-align: center;
+	font-size: clamp(.65rem, 1.6vw, .8rem);
+    font-weight: 300;
+    color: white;
+}
+
+.linea-divisione{
+	color: white;
+}
+
+ul{
+    list-style-type: none;
+}
